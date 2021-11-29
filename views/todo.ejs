@@ -1,0 +1,32 @@
+<!-- included the header file -->
+<%- include("header") -%>
+<div class="container1" id="heading">       
+    <h1>My Task's</h1>
+</div>        
+<div class="container">      
+    
+    
+<!-- use emebedded js to run the loop -->
+<% for(var i=0;i<newListItem.length;i++) { %>
+<form action="/delete" method="post">
+     <div class="item">
+        <div class="temp">
+            <!-- added a delete button to delete the item using the id of the item -->
+        <button name="remove" value="<%=newListItem[i]._id%>"  onChange="this.form.submit()" id="buttonDelete">   
+            <span class="fas fa-trash-alt"></span>         
+        </button>
+        </div>
+        <p><%= newListItem[i].name %></p>
+        <p id="inputdate">(Posted on:-<%=newListItem[i].date %>)</p>
+        <br>
+    </div>         
+</form> 
+<% } %>
+
+<!-- add a submit button to post the list item -->
+
+    <form class="item" action="/" method="post">
+        <input type="text" name="n"  placeholder="Enter your task here"><hr>
+        <button id="button1" type="submit" <span id="s2"></span>Add to your list</button> 
+    </form>
+</div>
